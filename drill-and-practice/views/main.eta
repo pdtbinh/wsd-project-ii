@@ -1,0 +1,12 @@
+<% layout("./layouts/layout.eta") %>
+
+<h1>Questions Application</h1>
+<p>The application provides a list of topics and allows creating multiple-choice questions into those topics that are then answered by self and others.</p>
+
+<h2>Application Statistics</h2>
+<p>Number of topics: <%= it.totalTopics  %></p>
+<p>Number of questions: <%= it.totalQuestions %></p>
+<p>Number of question answers: <%= it.totalQuestionAnswers %></p>
+
+<a href="/auth/register">Register</a>
+<a href="/auth/login">Login</a>
