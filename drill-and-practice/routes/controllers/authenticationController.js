@@ -1,6 +1,5 @@
 import { bcrypt, validasaur } from "../../deps.js";
 import * as userService from "../../services/userService.js";
-import { validasaur } from "../../deps.js";
 
 const showRegistrationForm = ({ render }) => {
   render("register.eta");
