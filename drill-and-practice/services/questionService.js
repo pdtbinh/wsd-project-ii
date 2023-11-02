@@ -9,11 +9,11 @@ const findQuestionsByTopic = async (topicId) => {
 };
 
 const findRandomQuestionByTopic = async (topicId) => {
-  return await sql`SELECT * FROM questions WHERE topic_id = ${topicId} ORDER BY RAND() LIMIT 1`;
+  return await sql`SELECT * FROM questions WHERE topic_id = ${topicId} ORDER BY random() LIMIT 1`;
 };
 
 const findRandomQuestion = async () => {
-  return await sql`SELECT * FROM questions ORDER BY RAND() LIMIT 1`;
+  return await sql`SELECT * FROM questions ORDER BY random() LIMIT 1`;
 };
 
 const deleteQuestionsByTopic = async (topicId) => {
