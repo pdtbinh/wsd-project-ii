@@ -36,3 +36,5 @@
     <input type="submit" value="Create a new topic!" />
   </form>
 <% } %>
+
+<p><a href="/quiz">Click to answer quizzes!</a></p>
