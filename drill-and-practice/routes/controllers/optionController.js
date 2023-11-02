@@ -53,7 +53,7 @@ const postOption = async ({ params, request, response, state, render }) => {
   }
 };
 
-const deleteOption = async ({ params, response, render }) => {
+const deleteOption = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {

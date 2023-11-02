@@ -2,7 +2,7 @@ import { countAllAnswers } from "../../services/questionAnswerService.js";
 import { countAllQuestions } from "../../services/questionService.js";
 import { countAllTopics } from "../../services/topicService.js";
 
-const showMain = async ({ render }) => {
+const showMain = async ({ params, request, response, state, render }) => {
   const topicRows = await countAllTopics();
   const topicCount = topicRows[0].count;
 

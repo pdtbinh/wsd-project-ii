@@ -23,7 +23,7 @@ const getRegisterData = async (request) => {
   };
 };
 
-const registerUser = async ({ request, response }) => {
+const registerUser = async ({ params, request, response, state, render }) => {
   const registerData = await getRegisterData(request);
 
   const existingUsers = await userService.findUsersWithEmail(
@@ -51,7 +51,7 @@ const registerUser = async ({ request, response }) => {
   }
 };
 
-const loginUser = async ({ request, response, state }) => {
+const loginUser = async ({ params, request, response, state, render }) => {
   const body = request.body({ type: "form" });
   const params = await body.value;
 

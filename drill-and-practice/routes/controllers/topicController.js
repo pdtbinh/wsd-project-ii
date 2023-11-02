@@ -11,7 +11,7 @@ import {
 } from "../../services/topicService.js";
 import { validasaur } from "../../deps.js";
 
-const showTopic = async ({ params, render }) => {
+const showTopic = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -28,7 +28,7 @@ const showTopic = async ({ params, render }) => {
 // This removes the topic, questions on the topic,
 // answer options related to questions on the topic,
 // and the answers given by users to those questions
-const deleteTopic = async ({ params, response, render }) => {
+const deleteTopic = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -61,7 +61,7 @@ const getTopicData = async (request) => {
   };
 };
 
-const postTopic = async ({ request, response, state, render }) => {
+const postTopic = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -86,7 +86,7 @@ const postTopic = async ({ request, response, state, render }) => {
   }
 };
 
-const showTopics = async ({ response, state, render }) => {
+const showTopics = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {

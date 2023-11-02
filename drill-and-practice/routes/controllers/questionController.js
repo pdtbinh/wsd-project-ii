@@ -18,7 +18,7 @@ import {
 import { getTopicById } from "../../services/topicService.js";
 import { validasaur } from "../../deps.js";
 
-const showQuestion = async ({ params, render }) => {
+const showQuestion = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -38,7 +38,7 @@ const questionValidationRules = {
   question_text: [validasaur.required, validasaur.minLength(1)],
 };
 
-const randomQuestion = async ({ params, render }) => {
+const randomQuestion = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -52,7 +52,7 @@ const randomQuestion = async ({ params, render }) => {
   response.redirect(`/quiz/${params.tId}/questions/${question.id}`);
 };
 
-const showRandomQuestion = async ({ params, render }) => {
+const showRandomQuestion = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -67,18 +67,18 @@ const showRandomQuestion = async ({ params, render }) => {
   render("question.eta", { ...question, options, answers });
 };
 
-const showCorrectPage = async ({ params, render }) => {
+const showCorrectPage = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
-    response.redirect("/auth/login");
+    response.redirect("/auth/login"); 
     return;
   }
 
   render("correct.eta", { topic_id: params.tId });
 };
 
-const showIncorrectPage = async ({ params, render }) => {
+const showIncorrectPage = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
@@ -91,7 +91,7 @@ const showIncorrectPage = async ({ params, render }) => {
   render("incorrect.eta", { topic_id: params.tId, options: correctOptions });
 };
 
-const jsonRandomQuestion = async ({ response }) => {
+const jsonRandomQuestion = async ({ params, request, response, state, render }) => {
   const rows = await findRandomQuestion();
   const question = rows[0];
   const options = await findAnswerOptionsByQuestion(question.id);
@@ -111,7 +111,7 @@ const jsonRandomQuestion = async ({ response }) => {
   response.body = mappedQuestion;
 };
 
-const verifyJson = async ({ request, response }) => {
+const verifyJson = async ({ params, request, response, state, render }) => {
   const body = request.body({ type: "json" });
   const document = await body.value;
   const questionId = document.questionId;
@@ -160,7 +160,7 @@ const postQuestion = async ({ params, request, response, state, render }) => {
   }
 };
 
-const deleteQuestion = async ({ params, response, render }) => {
+const deleteQuestion = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
   if (!user) {
