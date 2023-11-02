@@ -45,7 +45,7 @@ const registerUser = async ({ params, request, response, state, render }) => {
     render("register.eta", registerData);
   } else {
     const hash = await bcrypt.hash(registerData.password);
-    await userService.addUser(email, hash);
+    await userService.addUser(registerData.email, hash);
     response.redirect("/auth/login");
   }
 };
