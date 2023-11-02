@@ -51,7 +51,7 @@ router.get(
   questionController.showIncorrectPage
 );
 router.get("/quiz/:tId/questions/:qId", showRandomQuestion);
-router.get("/quiz/:tId,", randomQuestion);
+router.get("/quiz/:tId", randomQuestion);
 router.get("/quiz", showQuizPage);
 
 router.get("/api/questions/random", jsonRandomQuestion);
