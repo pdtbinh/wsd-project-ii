@@ -19,10 +19,7 @@ const getRegisterData = async (request) => {
 
   console.log('email', email);
 
-  return {
-    email,
-    password,
-  };
+  return { email, password };
 };
 
 const registerUser = async ({ params, request, response, state, render }) => {
@@ -32,7 +29,7 @@ const registerUser = async ({ params, request, response, state, render }) => {
     registerData.email
   );
 
-  if (existingUsers.length > 0) {
+  if ( existingUsers && existingUsers.length > 0) {
     response.redirect("/auth/login");
     return;
   }

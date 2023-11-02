@@ -7,10 +7,11 @@ import { Session } from "./deps.js";
 
 const app = new Application();
 
+app.use(Session.initMiddleware());
+
 app.use(errorMiddleware);
 app.use(serveStaticMiddleware);
 app.use(renderMiddleware);
-app.use(Session.initMiddleware());
 app.use(router.routes());
 
 export { app };
