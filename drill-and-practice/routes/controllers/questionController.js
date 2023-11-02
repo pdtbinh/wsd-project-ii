@@ -144,8 +144,6 @@ const deleteQuestion = async ({ params, request, response, state, render }) => {
 };
 
 export {
-  jsonRandomQuestion,
-  verifyJson,
   showCorrectPage,
   showIncorrectPage,
   showRandomQuestion,
