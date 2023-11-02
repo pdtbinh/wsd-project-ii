@@ -17,6 +17,8 @@ const getRegisterData = async (request) => {
   const email = params.get("email");
   const password = params.get("password");
 
+  console.log('email', email);
+
   return {
     email,
     password,
