@@ -3,19 +3,19 @@ import {
   findAnswerOptionsByQuestion,
   findCorrectOptionsForQuestion,
   findOptionById,
-} from "../../services/questionAnswerOptionService";
+} from "../../services/questionAnswerOptionService.js";
 import {
   deleteQuestionAnswers,
   findAnswersByQuestion,
-} from "../../services/questionAnswerService";
+} from "../../services/questionAnswerService.js";
 import {
   addQuestionToTopic,
   deleteQuestionById,
   findQuestionById,
   findRandomQuestion,
   findRandomQuestionByTopic,
-} from "../../services/questionService";
-import { getTopicById } from "../../services/topicService";
+} from "../../services/questionService.js";
+import { getTopicById } from "../../services/topicService.js";
 
 const showQuestion = async ({ params, render }) => {
   const user = await state.session.get("user");

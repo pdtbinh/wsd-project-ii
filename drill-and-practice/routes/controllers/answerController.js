@@ -1,5 +1,5 @@
-import { findOptionById } from "../../services/questionAnswerOptionService";
-import { addAnswer } from "../../services/questionAnswerService";
+import { findOptionById } from "../../services/questionAnswerOptionService.js";
+import { addAnswer } from "../../services/questionAnswerService.js";
 
 const postAnswer = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");

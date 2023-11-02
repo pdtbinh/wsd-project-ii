@@ -1,9 +1,9 @@
 import {
   addOption,
   deleteOptonById,
-} from "../../services/questionAnswerOptionService";
-import { deleteOptionAnswers } from "../../services/questionAnswerService";
-import { findQuestionById } from "../../services/questionService";
+} from "../../services/questionAnswerOptionService.js";
+import { deleteOptionAnswers } from "../../services/questionAnswerService.js";
+import { findQuestionById } from "../../services/questionService.js";
 
 const optionValidationRules = {
   option_text: [validasaur.required, validasaur.minLength(1)],

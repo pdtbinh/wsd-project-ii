@@ -16,7 +16,12 @@ const addAnswer = async (userId, questionId, optionId) => {
   await sql`INSERT INTO question_answers (user_id, question_id, question_answer_option_id) VALUES (${userId}, ${questionId}, ${optionId})`;
 };
 
+const countAllAnswers = async () => {
+  return await sql`SELECT COUNT(*) AS count FROM question_answers`;
+};
+
 export {
+  countAllAnswers,
   addAnswer,
   deleteOptionAnswers,
   deleteQuestionAnswers,

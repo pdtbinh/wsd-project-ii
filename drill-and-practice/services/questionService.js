@@ -28,7 +28,12 @@ const addQuestionToTopic = async (userId, topicId, questionText) => {
   await sql`INSERT INTO questions (user_id, topic_id, question_text) VALUES (${userId}, ${topicId}, ${questionText})`;
 };
 
+const countAllQuestions = async () => {
+  return await sql`SELECT COUNT(*) AS count FROM questions`;
+};
+
 export {
+  countAllQuestions,
   findRandomQuestion,
   findRandomQuestionByTopic,
   deleteQuestionById,
