@@ -38,7 +38,7 @@ export const showRandomQuestion = async ({
   const question = rows[0];
   const options = await findAnswerOptionsByQuestion(params.qId);
 
-  render("quizQuestion.eta", { ...question, options, answers });
+  render("quizQuestion.eta", { ...question, options });
 };
 
 export const randomQuestion = async ({
