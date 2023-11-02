@@ -1,5 +1,5 @@
-import { findAnswerOptionsByQuestion, findOptionById } from "../../services/questionAnswerOptionService";
-import { findRandomQuestion } from "../../services/questionService";
+import { findAnswerOptionsByQuestion, findOptionById } from "../../services/questionAnswerOptionService.js";
+import { findRandomQuestion } from "../../services/questionService.js";
 
 export const jsonRandomQuestion = async ({
   params,
