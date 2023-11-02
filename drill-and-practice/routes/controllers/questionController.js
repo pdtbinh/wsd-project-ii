@@ -124,14 +124,13 @@ const verifyJson = async ({ params, request, response, state, render }) => {
 };
 
 const getQuestionData = async (request, topicId) => {
-  const body = request.body();
-  const params = await body.value;
+  const formData = await request.formData();
   const rows = await getTopicById(topicId);
   const topic = rows[0];
 
   return {
     ...topic,
-    question_text: params.get("question_text"),
+    question_text: formData.get("question_text"),
   };
 };
 

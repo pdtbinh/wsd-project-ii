@@ -11,15 +11,15 @@ const optionValidationRules = {
 };
 
 const getOptionData = async (request, questionId) => {
-  const body = request.body();
-  const params = await body.value;
+  const formData = await request.formData();
+
   const rows = await findQuestionById(questionId);
   const question = rows[0];
 
   return {
     ...question,
-    option_text: params.get("option_text"),
-    is_correct: params.get("option_text"),
+    option_text: formData.get("option_text"),
+    is_correct: formData.get("option_text"),
   };
 };
 
