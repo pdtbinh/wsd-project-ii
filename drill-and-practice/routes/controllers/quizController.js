@@ -1,6 +1,6 @@
-import { findAnswerOptionsByQuestion } from "../../services/questionAnswerOptionService";
-import { findQuestionById, findRandomQuestionByTopic } from "../../services/questionService";
-import { getAllTopics } from "../../services/topicService";
+import { findAnswerOptionsByQuestion } from "../../services/questionAnswerOptionService.js";
+import { findQuestionById, findRandomQuestionByTopic } from "../../services/questionService.js";
+import { getAllTopics } from "../../services/topicService.js";
 
 export const showQuizPage = async ({
   params,
