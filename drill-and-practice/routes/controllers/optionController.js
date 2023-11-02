@@ -16,11 +16,12 @@ const getOptionData = async (request, questionId) => {
   console.log('getOptionData params', params);
   const rows = await findQuestionById(questionId);
   const question = rows[0];
+  const isCorrect = params.get("is_correct");
 
   return {
     ...question,
     option_text: params.get("option_text"),
-    is_correct: params.get("is_correct") === "on" ? true : false,
+    is_correct: isCorrect && isCorrect === "on" ? true : false,
   };
 };
 
@@ -45,7 +46,6 @@ const postOption = async ({ params, request, response, state, render }) => {
     render("question.eta", optionData);
   } else {
     await addOption(
-      user.id,
       params.qId,
       optionData.option_text,
       optionData.is_correct
