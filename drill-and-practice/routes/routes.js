@@ -15,6 +15,7 @@ import {
   showTopics,
 } from "./controllers/topicController.js";
 import { postAnswer } from "./controllers/answerController.js";
+import { jsonRandomQuestion, verifyJson } from "./apis/api.js";
 
 const router = new Router();
 
@@ -52,8 +53,8 @@ router.get("/quiz/:tId/questions/:qId", questionController.showRandomQuestion);
 router.get("/quiz/:tId,", questionController.randomQuestion);
 router.get("/quiz", showTopics);
 
-router.get("/api/questions/random", questionController.jsonRandomQuestion);
-router.get("/api/questions/answer", questionController.verifyJson);
+router.get("/api/questions/random", jsonRandomQuestion);
+router.get("/api/questions/answer", verifyJson);
 
 router.get("/auth/register", showRegistrationForm);
 router.post("/auth/register", registerUser);

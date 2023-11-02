@@ -1,6 +1,6 @@
 <% layout("./layouts/layout.eta") %>
 
-<h1><%= it.name %></h1>
+<h1>Topic: <%= it.name %></h1>
 
 <form method="POST" action="/topics/<%= it.id %>/questions">
   <label>Add question to topic</label>
@@ -8,8 +8,8 @@
   <input type="submit" value="Add question" />
 </form>
 
-<h2>Current accounts</h2>
 <% if (it.questions && it.questions.length > 0) { %>
+  <h2>Topic questions</h2>
   <ul>
     <% it.questions.forEach((question) => { %>
       <li>
@@ -18,4 +18,3 @@
     <% }); %>
   </ul>
 <% } %>
-<h2>Create account</h2>

@@ -19,7 +19,7 @@ const showTopic = async ({ params, request, response, state, render }) => {
     return;
   }
 
-  const rows = getTopicById(params.id);
+  const rows = await getTopicById(params.id);
   const obj = rows[0];
   const questions = await findQuestionsByTopic(params.id);
   render("topic.eta", { ...obj, questions });
