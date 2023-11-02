@@ -1,7 +1,5 @@
-# Project 2: XXX
+# Project 1: Shared shopping list
 
-Write the documentation of your project here. Do not include your personal
-details (e.g. name or student number).
+**Application Live Link:** https://binh-shopping-lists-application.onrender.com
 
-Remember to include the address of the online location where your project is
-running as it is a key part of the submission.
+[Click here to open the application](https://binh-shopping-lists-application.onrender.com)

@@ -38,35 +38,6 @@ const questionValidationRules = {
   question_text: [validasaur.required, validasaur.minLength(1)],
 };
 
-const randomQuestion = async ({ params, request, response, state, render }) => {
-  const user = await state.session.get("user");
-
-  if (!user) {
-    response.redirect("/auth/login");
-    return;
-  }
-
-  const rows = await findRandomQuestionByTopic(params.tId);
-  const question = rows[0];
-
-  response.redirect(`/quiz/${params.tId}/questions/${question.id}`);
-};
-
-const showRandomQuestion = async ({ params, request, response, state, render }) => {
-  const user = await state.session.get("user");
-
-  if (!user) {
-    response.redirect("/auth/login");
-    return;
-  }
-
-  const rows = await findQuestionById(params.qId);
-  const question = rows[0];
-  const options = await findAnswerOptionsByQuestion(params.qId);
-
-  render("question.eta", { ...question, options, answers });
-};
-
 const showCorrectPage = async ({ params, request, response, state, render }) => {
   const user = await state.session.get("user");
 
@@ -146,8 +117,6 @@ const deleteQuestion = async ({ params, request, response, state, render }) => {
 export {
   showCorrectPage,
   showIncorrectPage,
-  showRandomQuestion,
-  randomQuestion,
   showQuestion,
   postQuestion,
   deleteQuestion,

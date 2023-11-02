@@ -14,4 +14,3 @@
     <% }); %>
   </ul>
 <% } %>
-<h2>Create account</h2>
