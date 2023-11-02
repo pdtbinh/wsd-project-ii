@@ -1,3 +1,6 @@
+import { findAnswerOptionsByQuestion, findOptionById } from "../../services/questionAnswerOptionService";
+import { findRandomQuestion } from "../../services/questionService";
+
 export const jsonRandomQuestion = async ({
   params,
   request,
@@ -8,7 +11,7 @@ export const jsonRandomQuestion = async ({
   const rows = await findRandomQuestion();
   const question = rows[0];
   const options = await findAnswerOptionsByQuestion(question.id);
-
+  
   const mappedOptions = options.map((option) => ({
     optionId: option.id,
     optionText: option.option_text,

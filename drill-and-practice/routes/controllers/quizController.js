@@ -1,4 +1,4 @@
-import { findAnswerOptionsByQuestion } from "../../services/questionAnswerOptionService.js";
+import { findAnswerOptionsByQuestion, findCorrectOptionsForQuestion } from "../../services/questionAnswerOptionService.js";
 import { findQuestionById, findRandomQuestionByTopic } from "../../services/questionService.js";
 import { getAllTopics, getTopicById } from "../../services/topicService.js";
 
@@ -65,4 +65,28 @@ export const randomQuestion = async ({
 
   const question = rows[0];
   response.redirect(`/quiz/${params.tId}/questions/${question.id}`);
+};
+
+export const showCorrectPage = async ({ params, request, response, state, render }) => {
+  const user = await state.session.get("user");
+
+  if (!user) {
+    response.redirect("/auth/login"); 
+    return;
+  }
+
+  render("correct.eta", { topic_id: params.tId });
+};
+
+export const showIncorrectPage = async ({ params, request, response, state, render }) => {
+  const user = await state.session.get("user");
+
+  if (!user) {
+    response.redirect("/auth/login");
+    return;
+  }
+
+  const correctOptions = await findCorrectOptionsForQuestion(params.qId);
+
+  render("incorrect.eta", { topic_id: params.tId, options: correctOptions });
 };

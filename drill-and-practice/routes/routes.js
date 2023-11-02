@@ -16,7 +16,7 @@ import {
 } from "./controllers/topicController.js";
 import { postAnswer } from "./controllers/answerController.js";
 import { jsonRandomQuestion, verifyJson } from "./apis/api.js";
-import { randomQuestion, showQuizPage, showRandomQuestion } from "./controllers/quizController.js";
+import { randomQuestion, showCorrectPage, showIncorrectPage, showQuizPage, showRandomQuestion } from "./controllers/quizController.js";
 
 const router = new Router();
 
@@ -44,11 +44,11 @@ router.post("/topics", postTopic);
 router.post("/quiz/:tId/questions/:qId/options/:oId", postAnswer);
 router.get(
   "/quiz/:tId/questions/:qId/correct",
-  questionController.showCorrectPage
+  showCorrectPage
 );
 router.get(
   "/quiz/:tId/questions/:qId/incorrect",
-  questionController.showIncorrectPage
+  showIncorrectPage
 );
 router.get("/quiz/:tId/questions/:qId", showRandomQuestion);
 router.get("/quiz/:tId", randomQuestion);
