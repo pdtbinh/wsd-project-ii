@@ -20,7 +20,7 @@ const getOptionData = async (request, questionId) => {
   return {
     ...question,
     option_text: params.get("option_text"),
-    is_correct: params.get("is_correct"),
+    is_correct: params.get("is_correct") === "on" ? true : false,
   };
 };
 
