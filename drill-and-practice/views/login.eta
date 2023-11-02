@@ -2,14 +2,8 @@
 
 <h1>Login!</h1>
 
-<% if (it.validationErrors) { %>
-  <ul>
-      <% Object.keys(it.validationErrors).forEach((attribute) => { %>
-          <% Object.values(it.validationErrors[attribute]).forEach((err) => { %>
-              <li><%= err %></li>
-          <% }); %>
-      <% }); %>
-  </ul>
+<% if (it.error) { %>
+  <p><%= it.error %><p>
 <% } %>
 
 <form method="POST" action="/auth/login">

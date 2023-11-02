@@ -62,7 +62,7 @@ const loginUser = async ({ request, response, state, render }) => {
 
   if (existingUsers.length === 0) {
     const loginData = { email, password };
-    loginData.validationErrors = ["Login Error"];
+    loginData.error = "Login error! Try again or create a new account!";
     render("login.eta", loginData);
     return;
   }
