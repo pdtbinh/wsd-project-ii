@@ -51,7 +51,7 @@ const registerUser = async ({ params, request, response, state, render }) => {
   }
 };
 
-const loginUser = async ({ params, request, response, state, render }) => {
+const loginUser = async ({ request, response, state, render }) => {
   const body = request.body({ type: "form" });
   const params = await body.value;
 
