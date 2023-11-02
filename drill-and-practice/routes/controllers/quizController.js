@@ -58,7 +58,7 @@ export const randomQuestion = async ({
   const rows = await findRandomQuestionByTopic(params.tId);
 
   if (rows.length <= 0) {
-    const topicRows = await getTopicById(params.id);
+    const topicRows = await getTopicById(params.tId);
     const topic = topicRows[0];
     render("noQuestion.eta", topic);
   }
