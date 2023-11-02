@@ -11,9 +11,11 @@ const registerValidationRules = {
 };
 
 const getRegisterData = async (request) => {
-  const formData = await request.formData();
-  const email = formData.get("email");
-  const password = formData.get("password");
+  const body = request.body();
+  const params = await body.value;
+
+  const email = params.get("email");
+  const password = params.get("password");
 
   return {
     email,
@@ -50,9 +52,11 @@ const registerUser = async ({ params, request, response, state, render }) => {
 };
 
 const loginUser = async ({ request, response, state, render }) => {
-  const formData = await request.formData();
-  const email = formData.get("email");
-  const password = formData.get("password");
+  const body = request.body();
+  const params = await body.value;
+
+  const email = params.get("email");
+  const password = params.get("password");
 
   const existingUsers = await userService.findUsersWithEmail(email);
 

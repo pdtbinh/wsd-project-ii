@@ -54,10 +54,10 @@ const topicValidationRules = {
 };
 
 const getTopicData = async (request) => {
-  const formData = await request.formData();
-
+  const body = request.body();
+  const params = await body.value;
   return {
-    name: formData.get("name"),
+    name: params.get("name"),
   };
 };
 
