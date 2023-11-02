@@ -6,6 +6,7 @@ import {
 } from "../../services/questionService.js";
 import {
   addTopic,
+  deleteTopicById,
   getAllTopics,
   getTopicById,
 } from "../../services/topicService.js";
@@ -44,7 +45,7 @@ const deleteTopic = async ({ params, request, response, state, render }) => {
   }
 
   await deleteQuestionsByTopic(params.id);
-  await deleteTopic(params.id);
+  await deleteTopicById(params.id);
 
   response.redirect("/topics");
 };
