@@ -34,7 +34,7 @@ router.post(
   "/topics/:tId/questions/:qId/delete",
   questionController.deleteQuestion
 );
-router.post("/topics/:id/questions:qId/options", optionController.postOption);
+router.post("/topics/:id/questions/:qId/options", optionController.postOption);
 
 router.post("/topics/:id/questions", questionController.postQuestion);
 router.post("/topics/:id/delete", deleteTopic);

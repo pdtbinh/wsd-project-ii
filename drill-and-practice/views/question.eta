@@ -8,14 +8,16 @@
   </form>
 <% } %>
 
+<h2>Add answer option:</h2>
 <form method="POST" action="/topics/<%= it.topic_id %>/questions/<%= it.id %>/options">
-  <label>Add answer option</label>
+  <label>Option text:</label>
   <textarea id="option_text" name="option_text"></textarea>
   <input type="checkbox" id="is_correct" name="is_correct" />
   <input type="submit" value="Add option" />
 </form>
 
 <% if (it.options && it.options.length > 0) { %>
+  <h2>Answer Options:</h2>
   <ul>
     <% it.options.forEach((option) => { %>
       <li>
@@ -27,4 +29,3 @@
     <% }); %>
   </ul>
 <% } %>
-<h2>Create account</h2>
