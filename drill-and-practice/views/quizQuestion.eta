@@ -6,7 +6,7 @@
   <ul>
     <% it.options.forEach((option) => { %>
       <li>
-        <a href="/topics/<%= it.id %>/questions/<%= question.id %>"><%= option.option_text %>: <%= option.is_correct %> </a>
+        <%= option.option_text %>
         <form method="POST" action="/quiz/<%= it.topic_id %>/questions/<%= it.id %>/options/<%= option.id %>">
           <input type="submit" value="Choose" />
         </form>
