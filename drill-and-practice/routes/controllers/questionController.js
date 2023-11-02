@@ -124,7 +124,7 @@ const verifyJson = async ({ params, request, response, state, render }) => {
 };
 
 const getQuestionData = async (request, topicId) => {
-  const body = request.body({ type: "form" });
+  const body = request.body();
   const params = await body.value;
   const rows = await getTopicById(topicId);
   const topic = rows[0];

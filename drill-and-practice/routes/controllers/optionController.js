@@ -11,7 +11,7 @@ const optionValidationRules = {
 };
 
 const getOptionData = async (request, questionId) => {
-  const body = request.body({ type: "form" });
+  const body = request.body();
   const params = await body.value;
   const rows = await findQuestionById(questionId);
   const question = rows[0];

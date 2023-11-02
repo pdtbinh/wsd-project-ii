@@ -11,7 +11,7 @@ const registerValidationRules = {
 };
 
 const getRegisterData = async (request) => {
-  const body = request.body({ type: "form" });
+  const body = request.body();
   const params = await body.value;
 
   const email = params.get("email");
@@ -52,7 +52,7 @@ const registerUser = async ({ params, request, response, state, render }) => {
 };
 
 const loginUser = async ({ request, response, state, render }) => {
-  const body = request.body({ type: "form" });
+  const body = request.body();
   const params = await body.value;
 
   const email = params.get("email");
