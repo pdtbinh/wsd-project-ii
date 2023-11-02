@@ -16,6 +16,7 @@ import {
   findRandomQuestionByTopic,
 } from "../../services/questionService.js";
 import { getTopicById } from "../../services/topicService.js";
+import { validasaur } from "../../deps.js";
 
 const showQuestion = async ({ params, render }) => {
   const user = await state.session.get("user");
